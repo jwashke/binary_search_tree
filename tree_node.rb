@@ -1,6 +1,6 @@
 require 'pry'
 class TreeNode
-  attr_reader :value, :data, :depth
+  attr_reader :value, :data, :depth, :info
   attr_accessor :left, :right
 
   def initialize(value, data, depth)
@@ -9,9 +9,10 @@ class TreeNode
     @depth = depth
     @left = nil
     @right = nil
+    @info = {data => value}
   end
 
-  def insert(value, data) 
+  def insert(value, data)
     depth = @depth + 1
     if value == @value
       puts "There is already a node with that value."
@@ -24,8 +25,7 @@ class TreeNode
 
   def insert_right(value, data, depth)
     if @right == nil
-      @right = TreeNode.new(value, data, depth)
-      depth
+      create_new_right_node(value, data, depth)
     else
       @right.insert(value, data)
     end
@@ -33,24 +33,23 @@ class TreeNode
 
   def insert_left(value, data, depth)
     if @left == nil
-      @left = TreeNode.new(value, data, depth)
-      depth
+      create_new_left_node(value, data, depth)
     else
       @left.insert(value, data)
     end
   end
 
-  def include?(value)
-    if  @value == value
-      true
-    elsif value > @value and @right != nil
-      @right.include?(value)
-    elsif @left != nil
-      @left.include?(value)
-    else
-      false
-    end
+  def create_new_right_node(value, data, depth) #need to test this
+    @right = TreeNode.new(value, data, depth)
+    depth
   end
+
+  def create_new_left_node(value, data, depth) #need to test this
+    @left = TreeNode.new(value, data, depth)
+    depth
+  end
+
+
 
 
 

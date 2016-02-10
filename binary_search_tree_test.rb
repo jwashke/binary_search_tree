@@ -13,13 +13,6 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal "Bill & Ted's Excellent Adventure", tree.root_node.data
   end
 
-  def test_it_ignores_inserting_a_node_with_the_same_value
-    tree = BinarySearchTree.new
-    tree.insert(61, "Bill & Ted's Excellent Adventure")
-    tree.insert(61, "Jurassic Park")
-    assert_equal "Bill & Ted's Excellent Adventure", tree.root_node.data
-  end
-
   def test_if_the_value_is_greater_it_inserts_it_on_the_right_of_the_root_node
     tree = BinarySearchTree.new
     tree.insert(61, "Bill & Ted's Excellent Adventure")

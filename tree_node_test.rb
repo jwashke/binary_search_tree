@@ -25,10 +25,16 @@ class TreeNodeTest < Minitest::Test
     assert_equal nil, tree_node.right
   end
 
+  def test_it_has_an_info_hash_with_the_data_and_value
+    tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
+    assert_equal "Bill & Ted's Excellent Adventure", tree_node.info.key(61)
+    assert_equal 61, tree_node.info["Bill & Ted's Excellent Adventure"]
+  end
+
   def test_it_ignores_inserting_a_node_with_the_same_value
     tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
     tree_node.insert(61, "Jurassic Park")
-    assert_equal "Bill & Ted's Excellent Adventure", tree_node.data
+    assert_equal"Bill & Ted's Excellent Adventure", tree_node.data
   end
 
   def test_it_inserts_on_the_right_node_if_the_value_is_greater#need to test it returns depth
