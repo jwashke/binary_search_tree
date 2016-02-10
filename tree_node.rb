@@ -11,7 +11,7 @@ class TreeNode
     @right = nil
   end
 
-  def insert(value, data)
+  def insert(value, data) 
     depth = @depth + 1
     if value == @value
       puts "There is already a node with that value."
@@ -25,6 +25,7 @@ class TreeNode
   def insert_right(value, data, depth)
     if @right == nil
       @right = TreeNode.new(value, data, depth)
+      depth
     else
       @right.insert(value, data)
     end
@@ -33,6 +34,7 @@ class TreeNode
   def insert_left(value, data, depth)
     if @left == nil
       @left = TreeNode.new(value, data, depth)
+      depth
     else
       @left.insert(value, data)
     end
@@ -50,6 +52,6 @@ class TreeNode
     end
   end
 
-  
+
 
 end

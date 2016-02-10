@@ -5,7 +5,7 @@ require_relative 'binary_search_tree'
 
 class BinarySearchTreeTest < Minitest::Test
 
-  def test_it_can_insert_a_root_node
+  def test_it_can_insert_a_root_node #need to test it returns depth
     tree = BinarySearchTree.new
     tree.insert(61, "Bill & Ted's Excellent Adventure")
     assert_instance_of TreeNode, tree.root_node

@@ -6,14 +6,19 @@ class BinarySearchTree
     @root_node = nil
   end
 
-  def insert(value, data)
+  def insert(value, data) 
     if @root_node == nil
-      @root_node = TreeNode.new(value, data, 0)
+      create_root_node
     elsif @root_node.value == value
       puts "There is already a node with that value"
     else
       @root_node.insert(value, data)
     end
+  end
+
+  def create_root_node(value, data)
+    @root_node = TreeNode.new(value, data, 0)
+    0
   end
 
   def include?(value)

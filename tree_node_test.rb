@@ -31,7 +31,7 @@ class TreeNodeTest < Minitest::Test
     assert_equal "Bill & Ted's Excellent Adventure", tree_node.data
   end
 
-  def test_if_the_value_is_greater_it_inserts_it_on_the_right_of_the_node
+  def test_if_the_value_is_greater_it_inserts_it_on_the_right_of_the_node#need to test it returns depth
     tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
     tree_node.insert(92, "Sharknado 3")
     assert_equal 92, tree_node.right.value
