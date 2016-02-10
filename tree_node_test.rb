@@ -31,27 +31,31 @@ class TreeNodeTest < Minitest::Test
     assert_equal "Bill & Ted's Excellent Adventure", tree_node.data
   end
 
-  def test_if_the_value_is_greater_it_inserts_it_on_the_right_of_the_node#need to test it returns depth
+  def test_it_inserts_on_the_right_node_if_the_value_is_greater#need to test it returns depth
     tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
     tree_node.insert(92, "Sharknado 3")
     assert_equal 92, tree_node.right.value
     assert_equal "Sharknado 3", tree_node.right.data
   end
 
-  def test_if_the_value_is_less_it_inserts_it_on_the_left_of_the_node
+  def test_it_inserts_it_on_the_left_node_if_the_value_is_less
     tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
     tree_node.insert(16, "Johnny English")
     assert_equal 16, tree_node.left.value
     assert_equal "Johnny English", tree_node.left.data
   end
 
-  def test_its_right_node_increases_its_depth_by_1
+  def test_it_returns_the_depth_of_the_new_node_when_a_node_is_inserted
+
+  end
+
+  def test_inserting_to_its_right_node_increases_its_depth_by_1
     tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
     tree_node.insert(92, "Sharknado 3")
     assert_equal tree_node.depth + 1, tree_node.right.depth
   end
 
-  def test_its_left_node_increases_its_depth_by_1
+  def test_inserting_to_its_left_node_increases_its_depth_by_1
     tree_node = TreeNode.new(61, "Bill & Ted's Excellent Adventure", 0)
     tree_node.insert(16, "Johnny English")
     assert_equal tree_node.depth + 1, tree_node.left.depth
