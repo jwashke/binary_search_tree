@@ -24,8 +24,7 @@ class TreeDoctor
 
   def find_number_of_children(node)
     number_of_children = count_children(node)
-    #binding.pry
-    @health_array.push([node.value, number_of_children, (number_of_children.to_f/@number_of_nodes) * 100])
+    @health_array.push([node.value, number_of_children, ((number_of_children.to_f/@number_of_nodes) * 100).to_i])
   end
 
   def count_children(node)

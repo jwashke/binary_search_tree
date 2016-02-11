@@ -73,10 +73,3 @@ class BinarySearchTree
     array_of_movies.length
   end
 end
-
-tree = BinarySearchTree.new
-tree.load
-
-puts tree.min
-puts tree.max
-print tree.health(5)

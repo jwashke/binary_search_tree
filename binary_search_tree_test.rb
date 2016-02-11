@@ -43,4 +43,45 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal true, tree.include?(92)
   end
 
+  def test_it_can_sort_the_tree_into_an_array
+    tree = BinarySearchTree.new
+    tree.insert(61, "Bill & Ted's Excellent Adventure")
+    tree.insert(16, "Johnny English")
+    tree.insert(92, "Sharknado 3")
+    assert_equal [{"Johnny English"=>16},{"Bill & Ted's Excellent Adventure"=>61},{"Sharknado 3"=>92}], tree.sort
+  end
+
+  def test_it_can_return_the_health_of_the_tree_at_a_given_depth
+    tree = BinarySearchTree.new
+    tree.insert(61, "Bill & Ted's Excellent Adventure")
+    tree.insert(16, "Johnny English")
+    tree.insert(92, "Sharknado 3")
+    assert_equal [[16, 1, 33], [92, 1, 33]], tree.health(1)
+    assert_equal [[61, 3, 100]], tree.health(0)
+  end
+
+  def test_it_can_return_the_min_value_of_the_tree
+    tree = BinarySearchTree.new
+    tree.insert(61, "Bill & Ted's Excellent Adventure")
+    tree.insert(16, "Johnny English")
+    tree.insert(92, "Sharknado 3")
+    assert_equal ({"Johnny English"=>16}), tree.min
+  end
+
+  def test_it_can_return_the_max_value_of_the_tree
+    tree = BinarySearchTree.new
+    tree.insert(61, "Bill & Ted's Excellent Adventure")
+    tree.insert(16, "Johnny English")
+    tree.insert(92, "Sharknado 3")
+    assert_equal ({"Sharknado 3"=>92}), tree.max
+  end
+
+  def test_it_can_load_movies_from_a_file
+    tree = BinarySearchTree.new
+    tree.load("movies.txt")
+    assert_equal ({"Cruel Intentions"=>0}), tree.min
+    assert_equal ({"Serenity"=>72}), tree.max
+    assert_equal [[71, 100, 100]], tree.health(0)
+  end
+
 end
