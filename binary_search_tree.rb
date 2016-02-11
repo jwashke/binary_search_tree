@@ -63,9 +63,9 @@ class BinarySearchTree
     max.max(@root_node)
   end
 
-  def load
+  def load(file_name)
     file_reader = FileReader.new
-    array_of_movies = file_reader.read_file
+    array_of_movies = file_reader.read_file(file_name)
     array_of_movies.each do |node|
       insert(node[0].to_i, node[1].chomp)
       #binding.pry

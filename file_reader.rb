@@ -1,7 +1,7 @@
 
 class FileReader
-  def read_file
-    array = File.open("movies.txt").readlines.map do |line|
+  def read_file(file_name)
+    array = File.open(file_name).readlines.map do |line|
               line.split(", ")
             end
             array
