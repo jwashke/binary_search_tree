@@ -48,9 +48,4 @@ class TreeNode
     @left = TreeNode.new(value, data, depth)
     depth
   end
-
-
-
-
-
 end

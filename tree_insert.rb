@@ -1,1 +1,0 @@
-class test_it_returns_the_depth_of_the_new_node_when_a_node_is_inserted

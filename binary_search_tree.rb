@@ -3,6 +3,7 @@ require_relative 'sort_tree'
 require_relative 'tree_doctor'
 require_relative 'min_max'
 require_relative 'find'
+require_relative 'file_reader'
 
 class BinarySearchTree
   attr_reader :root_node
@@ -10,13 +11,14 @@ class BinarySearchTree
     @root_node = nil
   end
 
-  def insert(value, data)
-    if @root_node == nil
-      create_root_node(value, data)
-    else
-      @root_node.insert(value, data)
+
+    def insert(value, data)
+      if @root_node == nil
+        create_root_node(value, data)
+      else
+        @root_node.insert(value, data)
+      end
     end
-  end
 
   def create_root_node(value, data)
     @root_node = TreeNode.new(value, data, 0)
@@ -60,11 +62,21 @@ class BinarySearchTree
     max = MinMax.new
     max.max(@root_node)
   end
+
+  def load
+    file_reader = FileReader.new
+    array_of_movies = file_reader.read_file
+    array_of_movies.each do |node|
+      insert(node[0].to_i, node[1].chomp)
+      #binding.pry
+    end
+    array_of_movies.length
+  end
 end
 
 tree = BinarySearchTree.new
-tree.insert(61, "Bill % Ted's Excellent Adventure")
-tree.insert(16, "Johnny English")
-tree.insert(92, "Sharknado 3")
-tree.insert(50, "Hannibal Buress: Animal Furnace")
-print tree.include?(61)
+tree.load
+
+puts tree.min
+puts tree.max
+print tree.health(5)

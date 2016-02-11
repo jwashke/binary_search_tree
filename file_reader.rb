@@ -7,6 +7,3 @@ class FileReader
             array
   end
 end
-
-fileReader = AppendFromFile.new
-fileReader.read_file
